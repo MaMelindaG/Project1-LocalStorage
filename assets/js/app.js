@@ -44,6 +44,11 @@ function newTweet(e) {
 
      // add to Local Storage
      addTweetLocalStorage(tweet);
+
+      // Print the alert
+      alert('Tweet Added');
+       
+      this.reset();
 }      
 
 
@@ -118,7 +123,10 @@ function localStorageOnLoad() {
     // loop throught the tweets and remove the tweet that's equal 
     tweets.forEach(function(tweetLS, index) {
          if(tweetDelete === tweetLS) {
-              console.log('Yes');
+            tweets.splice(index, 1);
          }
     });
+
+     // Save the data 
+     localStorage.setItem('tweets', JSON.stringify(tweets) );
 }
